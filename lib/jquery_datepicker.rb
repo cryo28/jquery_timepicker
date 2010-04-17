@@ -9,6 +9,9 @@ require "app/helpers/form_helper.rb"
   ActiveSupport::Dependencies.load_once_paths.delete(path)
   ActionView::Base.send(:include, DatepickerHelper)
   ActionView::Helpers::FormBuilder.send(:include, FormHelper)
-  ActionView::Helpers::AssetTagHelper::JAVASCRIPT_DEFAULT_SOURCES = ['jquery','jquery-ui-datepicker']
+  aux = ActionView::Helpers::AssetTagHelper::JAVASCRIPT_DEFAULT_SOURCES
+  aux2 = aux+['jquery','jquery.autocomplete']
+  ActionView::Helpers::AssetTagHelper::JAVASCRIPT_DEFAULT_SOURCES = aux2	
   ActionView::Helpers::AssetTagHelper::reset_javascript_include_default
+
 end 
