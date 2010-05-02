@@ -15,7 +15,7 @@ if !File.exists?("#{RAILS_ROOT}/public/#{dir}/jquery.js")
 
 end
 
-if !File.exists?("#{RAILS_ROOT}/public/#{dir}/jquery-ui.js")
+if !File.exists?("#{RAILS_ROOT}/public/#{dir}/jquery-ui-datepicker.js")
   dest_file = File.join(RAILS_ROOT, "public", dir, "jquery-ui-datepicker.js")
   src_file = File.join(File.dirname(__FILE__) , dir, "jquery-ui-datepicker.js")
   File.copy(src_file, dest_file)
