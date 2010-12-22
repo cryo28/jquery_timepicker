@@ -1,7 +1,13 @@
 module TimepickerHelper
-  def timepicker_input(model,att)
-     ret = text_field(model,att)
-     ret += javascript_tag 'jQuery(document).ready(function(){$("#'+model.to_s+'_'+att.to_s+'").datetimepicker()});'
-     return ret
+  def timepicker_input(object_name, method, options)
+    id  = options[:id] || "#{object_name}_#{method}"
+    res = text_field(object_name, method, options)
+
+    res += javascript_tag(%Q|
+      jQuery(function() {
+        jQuery('##{id}').datetimepicker(jQuery.extend({showButtonPanel: true}, jQuery.datepicker.regional['ru']));
+      });
+    |)
+    res
   end
 end
