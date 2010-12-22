@@ -21,6 +21,8 @@ using an extension, provided by this plugin as follows:
 
 <%= javscript_include_tag :jquery_cdn %>
 
+Also please make sure that you fetched the git submodule, which is used by this plugin - jquery_timepicker_addon. (git submodule init && git submodule update inside the plugin's directory)
+
 That's it! Now you can add a timepicker field in your view.
 
 Example
