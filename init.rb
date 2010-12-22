@@ -1,1 +1,1 @@
-require 'rails/init.rb'
+require 'jquery_timepicker.rb'

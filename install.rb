@@ -1,31 +1,21 @@
-# Install hook code here
-#require 'ftools'
-#require 'fileutils'
-#
-#unless defined? RAILS_ROOT
-#  RAILS_ROOT = '../../..'
-#end
-#puts "Copying files..."
-#dir = "javascripts"
-#
-#if !File.exists?("#{RAILS_ROOT}/public/#{dir}/jquery.js")
-#  dest_file = File.join(RAILS_ROOT, "public", dir, "jquery.js")
-#  src_file = File.join(File.dirname(__FILE__) , dir, "jquery.js")
-#  File.copy(src_file, dest_file)
-#
-#end
-#
-#if !File.exists?("#{RAILS_ROOT}/public/#{dir}/jquery-ui-datepicker.js")
-#  dest_file = File.join(RAILS_ROOT, "public", dir, "jquery-ui-datepicker.js")
-#  src_file = File.join(File.dirname(__FILE__) , dir, "jquery-ui-datepicker.js")
-#  File.copy(src_file, dest_file)
-#end
-#
-#if !File.exists?("#{RAILS_ROOT}/public/stylesheets/calendar.css")
-#  dest_file = File.join(RAILS_ROOT, "public", "stylesheets")
-#  src_file = File.join(File.dirname(__FILE__) , "css","calendar")
-#  FileUtils.cp(src_file+"/calendar.css", dest_file)
-#  FileUtils.cp_r(src_file+"/images", dest_file)
-#end
-#
-#puts "Files copied - Installation complete!"
+require 'fileutils'
+
+timepicker_file   = 'jquery-ui-timepicker-addon.js'
+dst_in_rails_root = File.join('public/javascripts', timepicker_file)
+dst_path          = File.join(RAILS_ROOT, dst_in_rails_root)
+
+puts 'Installing jquery-timepicker'
+unless File.symlink?(dst_path) || File.exists?(dst_path)
+  begin
+    File.symlink(
+        '../../vendor/plugins/jquery_timepicker/jquery_timepicker_addon/' + timepicker_file,
+        dst_path
+    )
+    puts "Symlink created"
+  rescue NotImplementedError => e
+    File.copy(File.join(File.dirname(__FILE__), 'jquery_timepicker_addon/' + timepicker_file), dst_path)
+    puts "File copied"
+  end
+end
+puts 'Installation complete. Please make sure you use jQuery and jQuery UI (calendar and slider) i.e. from Google CDN'
+

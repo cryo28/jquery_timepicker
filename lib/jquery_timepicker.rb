@@ -13,5 +13,4 @@ require "app/helpers/form_helper.rb"
   aux2 = aux+['jquery','jquery-ui-timepicker-addon']
   ActionView::Helpers::AssetTagHelper::JAVASCRIPT_DEFAULT_SOURCES = aux2	
   ActionView::Helpers::AssetTagHelper::reset_javascript_include_default
-
-end 
+end
