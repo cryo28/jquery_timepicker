@@ -1,42 +1,45 @@
 JqueryDatepicker
 ================
 
-JqueryDatepicker is a simple Rails plugin that integrates jQuery Datepicker (http://docs.jquery.com/UI/Datepicker) with your Rails application.
+JqueryTimepicker is a fork of the simple Rails jQueryDatepicker plugin that integrates jQuery Timepicker (https://github.com/trentrichardson/jQuery-Timepicker-Addon) with your Rails application.
 
 Installation
 =======
 Go to your application dir and type
 
-script/plugin install git://github.com/wadomo/jquery_datepicker.git
+script/plugin install git://github.com/cryo28/jquery_timepicker.git
 
 IMPORTANT!
 
 You must include in your layout ( if you don't have yet):
 
-<%= stylesheet_link_tag :all %>
-<%= javascript_include_tag :defaults %>
+<%= stylesheet_link_tag :jquery_timepicker %>
+<%= javascript_include_tag :jquery_timepicker %>
 
-That's it! Now you can add a datepicker field in your view.
+Also somewhere before these lines you should include jquery and jquery-ui. Also you can include them from google cdn by
+using an extension, provided by this plugin as follows:
+
+<%= javscript_include_tag :jquery_cdn %>
+
+That's it! Now you can add a timepicker field in your view.
 
 Example
 =======
 
 Add this to your view.
 
-<%= datepicker_input "user","birthday" %>
+<%= timepicker_input "user","birthday" %>
 
 Where "user" is your model name and "birthday" the name of the datefield.
 
 You can also use it with the form helper like:
 
 <% form_for(@user) do |f| %>
-	<%= f.datepicker 'birthday' %>
+	<%= f.timepicker 'birthday' %>
 	<%= f.submit 'Create' %>
 <% end %>
 
 
-
-
 =============================================================================
-Copyright (c) 2010 WaDoMo, released under the MIT license
+Copyright (c) 2010 cryo28, WaDoMo, released under the MIT license
 
