@@ -1,1 +1,1 @@
-require 'jquery_datepicker'
+require 'jquery_timepicker'

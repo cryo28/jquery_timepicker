@@ -1,0 +1,3 @@
+[submodule "jquery_timepicker-addon"]
+	path = jquery_timepicker-addon
+	url = https://github.com/trentrichardson/jQuery-Timepicker-Addon.git
